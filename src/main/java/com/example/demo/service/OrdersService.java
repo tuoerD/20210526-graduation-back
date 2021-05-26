@@ -20,7 +20,7 @@ public interface OrdersService extends IService<Orders> {
 
     List<ordersVo> getOrdersInfo(Integer userId);
 
-    Boolean editOrderTag(String orderId,String orderTag);
+    Boolean editOrderTag(Integer orderId,String orderTag);
 
     void createOrder(Orders neworder);
 }

@@ -30,12 +30,13 @@ public class Orderitem implements Serializable {
     private Integer orderItemId;
 
     @TableField("orderId")
-    private String orderId;
+    private Integer orderId;
 
     @TableField("productId")
     private String productId;
 
     @ApiModelProperty(value = "商品数目")
+    @TableField("productCount")
     private Integer productCount;
 
 

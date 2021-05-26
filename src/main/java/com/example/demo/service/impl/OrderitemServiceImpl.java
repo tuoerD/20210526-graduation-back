@@ -16,5 +16,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrderitemServiceImpl extends ServiceImpl<OrderitemMapper, Orderitem> implements OrderitemService {
-
+    @Override
+    public Boolean createOrderItems(Integer orderId, String productId, Integer productCount) {
+        Orderitem newOrderItem=new Orderitem();
+        newOrderItem.setOrderId(orderId);
+        newOrderItem.setProductId(productId);
+        newOrderItem.setProductCount(productCount);
+        baseMapper.insert(newOrderItem);
+        return true;
+    }
 }

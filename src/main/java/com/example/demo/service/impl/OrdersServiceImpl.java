@@ -54,7 +54,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
      * @return
      */
     @Override
-    public Boolean editOrderTag(String orderId, String orderTag) {
+    public Boolean editOrderTag(Integer orderId, String orderTag) {
         QueryWrapper<Orders> wrapper=new QueryWrapper<>();
         wrapper.eq("orderId",orderId);
         Orders orders=baseMapper.selectOne(wrapper);
@@ -63,6 +63,10 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         return true;
     }
 
+    /**
+     * 创建订单
+     * @param neworder
+     */
     @Override
     public void createOrder(Orders neworder) {
         baseMapper.insert(neworder);

@@ -52,7 +52,7 @@ public class OrdersController {
      * @return
      */
     @PostMapping("editOrderTag")
-    public int editOrderTag(String orderId,String orderTag){
+    public int editOrderTag(Integer orderId,String orderTag){
         if(ordersService.editOrderTag(orderId,orderTag)==false){
             return -1;
         }
@@ -61,6 +61,13 @@ public class OrdersController {
         }
     }
 
+    /**
+     * 创建订单
+     * @param userId
+     * @param itemNumber
+     * @param totalAmount
+     * @return
+     */
     @PostMapping("createOrder")
     public Orders createOrder(Integer userId, Integer itemNumber, Float totalAmount){
         Orders neworder=new Orders();
@@ -72,5 +79,8 @@ public class OrdersController {
         ordersService.createOrder(neworder);
         return neworder;
     }
+
+
+
 }
 

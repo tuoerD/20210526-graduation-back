@@ -28,7 +28,7 @@ public class Orders implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "orderId", type = IdType.AUTO)
-    private String orderId;
+    private Integer orderId;
 
     @TableField("userId")
     private Integer userId;

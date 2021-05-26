@@ -15,4 +15,5 @@ import org.springframework.stereotype.Service;
 //@Service
 public interface OrderitemService extends IService<Orderitem> {
 
+    Boolean createOrderItems(Integer orderId, String productId, Integer productCount);
 }
