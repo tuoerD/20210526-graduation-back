@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.entity.Orders;
 import com.example.demo.entity.Product;
 import com.example.demo.entity.vo.storeVo;
 import com.example.demo.service.ProductService;
@@ -118,5 +119,25 @@ public class ProductController {
     public List<Product> getProductByStore(Integer storeId){
         return productService.getProductByStore(storeId);
     }
+
+    /**
+     * 通过名字获取化妆品信息
+     * @param productName
+     * @return
+     */
+    @PostMapping("getProductInfoByName/{productName}")
+    public Product getProductInfoByName(@PathVariable String productName){
+        return productService.getProductInfoByName(productName);
+    }
+
+    @PostMapping("updatePro")
+    public int updatePro(String productId,Integer num){
+        if(productService.updatePro(productId,num)){
+            return 1;
+        }else {
+            return -1;
+        }
+    }
+
 }
 

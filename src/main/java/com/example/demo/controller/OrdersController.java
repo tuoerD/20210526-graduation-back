@@ -80,7 +80,14 @@ public class OrdersController {
         return neworder;
     }
 
-
+    @PostMapping("deleteOrder")
+    public int deleteOrder(Integer orderId){
+        if(ordersService.deleteOrder(orderId)){
+            return 1;
+        }else {
+            return -1;
+        }
+    }
 
 }
 

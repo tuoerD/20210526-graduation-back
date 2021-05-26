@@ -204,5 +204,21 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         return base64EncoderImg;
     }
 
+    @Override
+    public Product getProductInfoByName(String productName) {
+        QueryWrapper<Product> wrapper = new QueryWrapper<>();
+        wrapper.eq("productName",productName);
+        return baseMapper.selectOne(wrapper);
+    }
 
+    @Override
+    public Boolean updatePro(String productId,Integer num) {
+        QueryWrapper<Product> wrapper = new QueryWrapper<>();
+        wrapper.eq("productId",productId);
+        Product product=baseMapper.selectOne(wrapper);
+        product.setInventory(product.getInventory()-num);
+        product.setSalesVolume(product.getSalesVolume()+num);
+        baseMapper.updateById(product);
+        return true;
+    }
 }

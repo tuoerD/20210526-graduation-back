@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.OrdersMapper">
     <select id="getOrdersInfo" resultType="com.example.demo.entity.vo.ordersVo">
-    SELECT  orderDate,storeName,productName,productCount,itemPay,orderItemTag
+    SELECT  orderDate,storeName,productName,productCount,itemPay,orderItemTag,orderItemId
     FROM orders LEFT OUTER JOIN orderitem ON orders.orderId = orderitem.orderId
     LEFT OUTER JOIN product ON orderitem.productId = product.productId
     LEFT OUTER JOIN store ON store.storeId = product.storeId

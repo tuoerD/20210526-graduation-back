@@ -72,4 +72,19 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         baseMapper.insert(neworder);
         return;
     }
+
+    @Override
+    public Boolean deleteOrder(Integer orderId) {
+        QueryWrapper<Orders> wrapper=new QueryWrapper<>();
+        wrapper.eq("orderId",orderId);
+        Orders order=baseMapper.selectOne(wrapper);
+        if(order.getItemNumber()>1){
+            order.setItemNumber(order.getItemNumber()-1);
+            baseMapper.updateById(order);
+            return true;
+        }else {
+            baseMapper.deleteById(orderId);
+            return true;
+        }
+    }
 }

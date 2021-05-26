@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.demo.entity.Orderitem;
+import com.example.demo.entity.Orders;
 import com.example.demo.entity.Product;
 import com.example.demo.entity.vo.manageOrders;
 import com.example.demo.mapper.OrderitemMapper;
@@ -66,6 +67,23 @@ public class OrderitemServiceImpl extends ServiceImpl<OrderitemMapper, Orderitem
         Orderitem orderitem=baseMapper.selectOne(wrapper);
         orderitem.setOrderItemTag(orderItemTag);
         baseMapper.updateById(orderitem);
+        return true;
+    }
+
+    @Override
+    public int cancelOrderItem(Integer orderItemId) {
+//        int orderid=0;
+        QueryWrapper<Orderitem> wrapper=new QueryWrapper<>();
+        wrapper.eq("orderItemId",orderItemId);
+        Orderitem item=baseMapper.selectOne(wrapper);
+
+        return item.getOrderId();
+//        baseMapper.deleteById(orderItemId);
+    }
+
+    @Override
+    public Boolean deleteOrderItem(Integer orderItemId) {
+        baseMapper.deleteById(orderItemId);
         return true;
     }
 }

@@ -40,4 +40,7 @@ public interface ProductService extends IService<Product> {
 
     String addProPic(MultipartFile file) throws IOException;
 
+    Product getProductInfoByName(String productName);
+
+    Boolean updatePro(String productId,Integer num);
 }

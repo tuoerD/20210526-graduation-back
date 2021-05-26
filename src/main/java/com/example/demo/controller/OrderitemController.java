@@ -1,7 +1,10 @@
 package com.example.demo.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.demo.entity.Orderitem;
 import com.example.demo.entity.vo.manageOrders;
+import com.example.demo.mapper.OrderitemMapper;
 import com.example.demo.service.OrderitemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,6 +67,20 @@ public class OrderitemController {
         }
         else{
             return 1;
+        }
+    }
+
+    @PostMapping("cancelOrderItem")
+    public int  cancelOrderItem(Integer orderItemId){
+        return orderitemService.cancelOrderItem(orderItemId);
+    }
+
+    @PostMapping("deleteOrderItem")
+    public int deleteItem(Integer orderItemId){
+        if(orderitemService.deleteOrderItem(orderItemId)){
+            return 1;
+        }else {
+            return -1;
         }
     }
 }

@@ -23,4 +23,8 @@ public interface OrderitemService extends IService<Orderitem> {
     List<manageOrders> getManageOrders();
 
     Boolean editOrderItemTag(Integer orderItemId, String orderItemTag);
+
+    int cancelOrderItem(Integer orderItemId);
+
+    Boolean deleteOrderItem(Integer orderItemId);
 }

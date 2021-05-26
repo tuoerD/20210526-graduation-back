@@ -23,4 +23,6 @@ public interface OrdersService extends IService<Orders> {
     Boolean editOrderTag(Integer orderId,String orderTag);
 
     void createOrder(Orders neworder);
+
+    Boolean deleteOrder(Integer orderId);
 }

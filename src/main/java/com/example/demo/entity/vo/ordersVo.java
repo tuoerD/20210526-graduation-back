@@ -12,4 +12,5 @@ public class ordersVo {
     private Integer productCount;
     private Float itemPay;
     private String orderItemTag;
+    private Integer orderItemId;
 }
