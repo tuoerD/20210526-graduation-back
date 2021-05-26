@@ -2,7 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Orderitem;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.entity.vo.manageOrders;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,5 +18,9 @@ import org.springframework.stereotype.Service;
 //@Service
 public interface OrderitemService extends IService<Orderitem> {
 
-    Boolean createOrderItems(Integer orderId, String productId, Integer productCount);
+    Boolean createOrderItems(Integer orderId, String productId ,Float nowPrice, Integer productCount);
+
+    List<manageOrders> getManageOrders();
+
+    Boolean editOrderItemTag(Integer orderItemId, String orderItemTag);
 }

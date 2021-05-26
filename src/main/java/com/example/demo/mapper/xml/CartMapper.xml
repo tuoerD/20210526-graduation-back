@@ -7,7 +7,7 @@
         where cart.userId = #{userId}
     </select>
     <select id="getOrderByCart" resultType="com.example.demo.entity.vo.confirmOrderVo">
-        SELECT cart.productId,cart.quantity,product.productName,product.nowPrice,product.picture
+        SELECT cart.cartId,cart.productId,cart.quantity,product.productName,product.nowPrice,product.picture
         FROM cart LEFT OUTER JOIN product ON cart.productId=product.productId
         WHERE cart.cartId=#{cartId}
     </select>

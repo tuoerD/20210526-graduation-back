@@ -39,5 +39,9 @@ public class Orderitem implements Serializable {
     @TableField("productCount")
     private Integer productCount;
 
+    @TableField("orderItemTag")
+    private String orderItemTag;
 
+    @TableField("itemPay")
+    private Float itemPay;
 }

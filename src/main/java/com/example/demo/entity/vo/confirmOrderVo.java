@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class confirmOrderVo {
+    Integer cartId;
     String productId;
     String productName;
     Integer quantity;

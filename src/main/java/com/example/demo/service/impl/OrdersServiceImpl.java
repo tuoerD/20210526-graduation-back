@@ -58,7 +58,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         QueryWrapper<Orders> wrapper=new QueryWrapper<>();
         wrapper.eq("orderId",orderId);
         Orders orders=baseMapper.selectOne(wrapper);
-        orders.setOrderTag(orderTag);
+//        orders.setOrderTag(orderTag);
         baseMapper.updateById(orders);
         return true;
     }

@@ -45,7 +45,5 @@ public class Orders implements Serializable {
     @TableField("totalAmount")
     private Float totalAmount;
 
-    @ApiModelProperty(value = "订单标签")
-    @TableField("orderTag")
-    private String orderTag;
+
 }

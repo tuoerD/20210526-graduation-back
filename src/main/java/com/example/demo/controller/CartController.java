@@ -67,13 +67,6 @@ public class CartController {
      */
     @PostMapping("getOrdersByCart")
     public confirmOrderVo getOrderByCart(Integer cartId){
-//        List<confirmOrderVo> list=null;
-//        for(int i=0;i<cartIds.size();i++){
-//            int nowId=cartIds.get(i);
-//            if(cartService.getOrderByCart(nowId)!=null){
-//                list.add(cartService.getOrderByCart(nowId));
-//            }
-//        }
         return cartService.getOrderByCart(cartId);
     }
 
