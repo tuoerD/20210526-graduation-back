@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CartMapper">
+    <select id="getCartInfo" resultType="com.example.demo.entity.vo.cartVo">
+        select  cartId,productName,nowPrice,quantity
+        from product left outer join cart on product.productId = cart.productId
+        where cart.userId = #{userId}
+    </select>
+    <select id="getOrderByCart" resultType="com.example.demo.entity.vo.confirmOrderVo">
+        SELECT cart.productId,cart.quantity,product.productName,product.nowPrice,product.picture
+        FROM cart LEFT OUTER JOIN product ON cart.productId=product.productId
+        WHERE cart.cartId=#{cartId}
+    </select>
+</mapper>
