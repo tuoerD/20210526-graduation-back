@@ -194,6 +194,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         return baseMapper.selectList(wrapper);
     }
 
+    /**
+     * 添加图片
+     * @param file
+     * @return
+     * @throws IOException
+     */
     @Override
     public String addProPic(MultipartFile file) throws IOException {
         BASE64Encoder bEncoder=new BASE64Encoder();
@@ -204,6 +210,11 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         return base64EncoderImg;
     }
 
+    /**
+     * 通过名字获取化妆品
+     * @param productName
+     * @return
+     */
     @Override
     public Product getProductInfoByName(String productName) {
         QueryWrapper<Product> wrapper = new QueryWrapper<>();
@@ -211,6 +222,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         return baseMapper.selectOne(wrapper);
     }
 
+    /**
+     * 提交订单后更新化妆品库存和销量
+     * @param productId
+     * @param num
+     * @return
+     */
     @Override
     public Boolean updatePro(String productId,Integer num) {
         QueryWrapper<Product> wrapper = new QueryWrapper<>();
@@ -218,6 +235,22 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         Product product=baseMapper.selectOne(wrapper);
         product.setInventory(product.getInventory()-num);
         product.setSalesVolume(product.getSalesVolume()+num);
+        baseMapper.updateById(product);
+        return true;
+    }
+
+    /**
+     * 管理员编辑化妆品库存
+     * @param productId
+     * @param inventory
+     * @return
+     */
+    @Override
+    public Boolean editInventory(String productId, Integer inventory) {
+        QueryWrapper<Product> wrapper=new QueryWrapper<>();
+        wrapper.eq("productId",productId);
+        Product product=baseMapper.selectOne(wrapper);
+        product.setInventory(inventory);
         baseMapper.updateById(product);
         return true;
     }

@@ -43,4 +43,6 @@ public interface ProductService extends IService<Product> {
     Product getProductInfoByName(String productName);
 
     Boolean updatePro(String productId,Integer num);
+
+    Boolean editInventory(String productId, Integer inventory);
 }

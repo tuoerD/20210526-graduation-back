@@ -27,4 +27,6 @@ public interface OrderitemService extends IService<Orderitem> {
     int cancelOrderItem(Integer orderItemId);
 
     Boolean deleteOrderItem(Integer orderItemId);
+
+    List<manageOrders> getOrderitemsListByKey(List list,String searchKey, Integer selectKey);
 }

@@ -130,6 +130,12 @@ public class ProductController {
         return productService.getProductInfoByName(productName);
     }
 
+    /**
+     * 提交订单后更改化妆品库存销量
+     * @param productId
+     * @param num
+     * @return
+     */
     @PostMapping("updatePro")
     public int updatePro(String productId,Integer num){
         if(productService.updatePro(productId,num)){
@@ -139,5 +145,13 @@ public class ProductController {
         }
     }
 
+    @PostMapping("editInventory")
+    public int editInventory(String productId,Integer inventory){
+        if(productService.editInventory(productId,inventory)){
+            return 1;
+        }else {
+            return -1;
+        }
+    }
 }
 

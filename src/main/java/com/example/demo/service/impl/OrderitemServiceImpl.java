@@ -70,6 +70,11 @@ public class OrderitemServiceImpl extends ServiceImpl<OrderitemMapper, Orderitem
         return true;
     }
 
+    /**
+     * 取消订单前获取订单号
+     * @param orderItemId
+     * @return
+     */
     @Override
     public int cancelOrderItem(Integer orderItemId) {
 //        int orderid=0;
@@ -81,9 +86,20 @@ public class OrderitemServiceImpl extends ServiceImpl<OrderitemMapper, Orderitem
 //        baseMapper.deleteById(orderItemId);
     }
 
+    /**
+     * 删除订单项
+     * @param orderItemId
+     * @return
+     */
     @Override
     public Boolean deleteOrderItem(Integer orderItemId) {
         baseMapper.deleteById(orderItemId);
         return true;
+    }
+
+    @Override
+    public List<manageOrders> getOrderitemsListByKey(List list,String searchKey, Integer selectKey) {
+
+        return null;
     }
 }

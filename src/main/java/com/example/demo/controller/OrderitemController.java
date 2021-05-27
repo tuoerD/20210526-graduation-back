@@ -83,5 +83,13 @@ public class OrderitemController {
             return -1;
         }
     }
+
+    /**
+     * 管理员搜索订单项
+     */
+    @PostMapping("getOrderitemsListByKey")
+    public List<manageOrders> getOrderitemsListByKey(List list,String searchKey, Integer selectKey){
+        return orderitemService.getOrderitemsListByKey(list,searchKey,selectKey);
+    }
 }
 

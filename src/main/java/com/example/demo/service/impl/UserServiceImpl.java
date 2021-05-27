@@ -40,7 +40,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.eq("userEmail",userEmail);
         wrapper.eq("password",password);
-        return baseMapper.selectOne(wrapper);
+        User user=baseMapper.selectOne(wrapper);
+        if(user.getDelTag()==1){
+            return null;
+        }
+        return user;
     }
 
     /**
@@ -181,6 +185,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return true;
     }
 
+    /**
+     * 通过ID获取用户信息
+     * @param userId
+     * @return
+     */
     @Override
     public User getUserById(Integer userId) {
         QueryWrapper<User> wrapper=new QueryWrapper<>();
